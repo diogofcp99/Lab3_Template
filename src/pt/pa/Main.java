@@ -1,15 +1,12 @@
 package pt.pa;
 
-import pt.pa.model.CourseGrades;
-import pt.pa.model.StudentGrade;
+import pt.pa.model.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         CourseGrades grades = generate_example();
-
-        System.out.println(grades);
 
     }
 

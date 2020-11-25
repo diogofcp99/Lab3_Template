@@ -5,6 +5,7 @@ import java.util.*;
 public class CourseGrades {
     private final String course;
     private final Map<String, StudentGrade> results;
+    private Statistic statistic;
 
     /**
      * Instanciates a new course with empty list of grades.
@@ -96,6 +97,20 @@ public class CourseGrades {
         results.clear();
     }
 
+    public Statistic getStatistic() {
+        return statistic;
+    }
+
+    public void changeStatistic(Statistic s){
+        this.statistic = s;
+    }
+
+    public double computeStatistic(){
+        if(statistic == null) this.statistic = new ArithmeticAverage();
+        List<StudentGrade> grades = new ArrayList<>(results.values());
+        return this.statistic.compute(grades);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(this.course + "\n");
@@ -107,4 +122,5 @@ public class CourseGrades {
 
         return sb.toString();
     }
+
 }
